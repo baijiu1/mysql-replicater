@@ -22,19 +22,19 @@ int main() {
     registerSignal();
 //    Util * util = new Util();
     Util * util;
-//    util->Init();
+    util->Init();
 
 //
-//    MysqlReplicater_Admin_Int_module();
-//    if (ret == 1) {
-//        raise(SIGINT);
-//    }
+    MysqlReplicater_Admin_Int_module();
+    if (ret == 1) {
+        raise(SIGINT);
+    }
 
     // insert to target db
 //    util->createPostgreSQL();
 
 
-   util->openFile("wal");
+//   util->openFile("wal");
 
 
 }
