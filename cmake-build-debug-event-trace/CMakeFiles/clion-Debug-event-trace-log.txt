@@ -1,0 +1,115 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug --profiling-format=google-trace --profiling-output=CMakeFiles/clion-event-trace.json -DCMAKE_TOOLCHAIN_FILE=/Users/haruhi/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake -S /Users/haruhi/ClionProjects/mysql-replicater -B /Users/haruhi/ClionProjects/mysql-replicater/cmake-build-debug-event-trace
+CMake Warning (dev) at CMakeLists.txt:1 (project):
+  cmake_minimum_required() should be called prior to this top-level project()
+  call.  Please see the cmake-commands(7) manual for usage documentation of
+  both commands.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at CMakeLists.txt:1 (project):
+  Policy CMP0048 is not set: project() command manages VERSION variables.
+  Run "cmake --help-policy CMP0048" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  The following variable(s) would be set to empty:
+
+    CMAKE_PROJECT_VERSION
+    CMAKE_PROJECT_VERSION_MAJOR
+    CMAKE_PROJECT_VERSION_MINOR
+    CMAKE_PROJECT_VERSION_PATCH
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Running vcpkg install
+Detecting compiler hash for triplet arm64-osx...
+Compiler found: /Library/Developer/CommandLineTools/usr/bin/c++
+All requested packages are currently installed.
+Total install time: 167 ns
+boost-multiprecision provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(boost_multiprecision CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Boost::multiprecision)
+
+cli11 provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(CLI11 CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE CLI11::CLI11)
+
+cli11 provides pkg-config modules:
+
+  # C++ command line parser
+  CLI11
+
+openssl is compatible with built-in CMake targets:
+
+  find_package(OpenSSL REQUIRED)
+  target_link_libraries(main PRIVATE OpenSSL::SSL)
+  target_link_libraries(main PRIVATE OpenSSL::Crypto)
+
+The package libpq provides CMake integration:
+
+    find_package(PostgreSQL REQUIRED)
+    target_link_libraries(main PRIVATE PostgreSQL::PostgreSQL)
+
+-- Running vcpkg install - done
+CMake Deprecation Warning at src/common/libconfig/CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+./bpchar.cpp./date.cpp./event.cpp./numeric.cpp./page.cpp./table.cpp./type.cpp
+-- Configuring done (5.4s)
+CMake Warning (dev) at /Users/haruhi/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake:598 (_add_executable):
+  Policy CMP0003 should be set before this line.  Add code such as
+
+    if(COMMAND cmake_policy)
+      cmake_policy(SET CMP0003 NEW)
+    endif(COMMAND cmake_policy)
+
+  as early as possible but after the most recent call to
+  cmake_minimum_required or cmake_policy(VERSION).  This warning appears
+  because target "mysql_replicater" links to some libraries for which the
+  linker must search:
+
+    CLI11, dl
+
+  and other libraries with known full path:
+
+    /Users/haruhi/ClionProjects/mysql-replicater/src/access/libaccess.a
+    /Users/haruhi/ClionProjects/mysql-replicater/src/access/table/libtab1.a
+    /Users/haruhi/ClionProjects/mysql-replicater/src/access/common/libacesscomm.a
+    /Users/haruhi/ClionProjects/mysql-replicater/cmake-build-debug-event-trace/vcpkg_installed/arm64-osx/debug/lib/libpq.a
+    /Users/haruhi/ClionProjects/mysql-replicater/cmake-build-debug-event-trace/vcpkg_installed/arm64-osx/lib/libpgport.a
+
+  CMake is adding directories in the second list to the linker search path in
+  case they are needed to find libraries from the first list (for backwards
+  compatibility with CMake 2.4).  Set policy CMP0003 to OLD or NEW to enable
+  or disable this behavior explicitly.  Run "cmake --help-policy CMP0003" for
+  more information.
+Call Stack (most recent call first):
+  src/CMakeLists.txt:21 (add_executable)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning at /Users/haruhi/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake:598 (_add_executable):
+  Cannot generate a safe linker search path for target mysql_replicater
+  because there is a cycle in the constraint graph:
+
+    dir 0 is [/Users/haruhi/ClionProjects/mysql-replicater/src/access/./table/tab1]
+    dir 1 is [/Users/haruhi/ClionProjects/mysql-replicater/src/access]
+    dir 2 is [/Users/haruhi/ClionProjects/mysql-replicater/src/access/table]
+    dir 3 is [/Users/haruhi/ClionProjects/mysql-replicater/src/access/common]
+    dir 4 is [/Users/haruhi/ClionProjects/mysql-replicater/cmake-build-debug-event-trace/vcpkg_installed/arm64-osx/debug/lib]
+      dir 5 must precede it due to link library [libpgport.a]
+    dir 5 is [/Users/haruhi/ClionProjects/mysql-replicater/cmake-build-debug-event-trace/vcpkg_installed/arm64-osx/lib]
+      dir 4 must precede it due to link library [libpq.a]
+
+  Some of these libraries may not be found correctly.
+Call Stack (most recent call first):
+  src/CMakeLists.txt:21 (add_executable)
+
+
+-- Generating done (0.2s)
+-- Build files have been written to: /Users/haruhi/ClionProjects/mysql-replicater/cmake-build-debug-event-trace

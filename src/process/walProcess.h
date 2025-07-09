@@ -140,9 +140,9 @@ typedef XLogLongPageHeaderData *XLogLongPageHeader;
  * XLogRecordBlockHeader/XLogRecordDataHeaderShort/XLogRecordDataHeaderLong开头是占用1个字节的"id".
  * 用于区分block依赖和main data结构体.
  */
-typedef unsigned int Oid;
-typedef Oid regproc;
-typedef regproc RegProcedure;
+//typedef unsigned int Oid;
+//typedef Oid regproc;
+//typedef regproc RegProcedure;
 
 typedef uint32_t TransactionId;
 

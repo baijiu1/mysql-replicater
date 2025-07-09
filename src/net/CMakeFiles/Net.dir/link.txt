@@ -1,0 +1,2 @@
+/usr/bin/ar qc libNet.a CMakeFiles/Net.dir/auth.cpp.o CMakeFiles/Net.dir/packet.cpp.o CMakeFiles/Net.dir/read.cpp.o CMakeFiles/Net.dir/send.cpp.o
+/usr/bin/ranlib libNet.a

@@ -1,0 +1,511 @@
+Package: vcpkg-cmake-config
+Version: 2024-05-23
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 48c6b814bbf57aed87f093c11f0f81e40ef098a857ca8ce39b0bfda50d788cdf
+Status: install ok installed
+
+Package: vcpkg-cmake
+Version: 2024-04-23
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: deea337f26b29e93ecd37573174146fbdc5d6906b310f141b854a1ed511e48e8
+Status: install ok installed
+
+Package: vcpkg-boost
+Version: 2024-05-15
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: dfa4c6b46abd65f13ce77b6640735507587807ff27e630aac0d193f3e2a597f1
+Status: install ok installed
+
+Package: boost-uninstall
+Version: 1.86.0
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: b856750cf488e46119bddab454d3206875f3c35f2c33b2da01040c3e166fe856
+Description: Internal vcpkg port used to uninstall Boost
+Status: install ok installed
+
+Package: boost-cmake
+Version: 1.86.0
+Depends: boost-uninstall, vcpkg-boost, vcpkg-cmake, vcpkg-cmake-config
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 707e429a5ac46490043a63a549da3a3e621dd4f393e5659ed888b6c9269848cb
+Description: Boost CMake support infrastructure
+Status: install ok installed
+
+Package: boost-headers
+Version: 1.86.0
+Depends: boost-cmake
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: e72ac1cb509f1c7720cf299e1f898fc3ec9908afabb6a00a28732255fa94e4b8
+Description: Boost headers module
+Status: install ok installed
+
+Package: boost-config
+Version: 1.86.0
+Depends: boost-cmake, boost-headers
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: c473e57dd8ef09e416577d25c202ffc25f03eef514f3530ae48c57936d43b53c
+Description: Boost config module
+Status: install ok installed
+
+Package: boost-assert
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-headers
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 7abfc9c9e1c3009cf8ec3fb646fec2e10a9b25de84d24092f9f6a335a13c78ed
+Description: Boost assert module
+Status: install ok installed
+
+Package: boost-throw-exception
+Version: 1.86.0
+Depends: boost-assert, boost-cmake, boost-config, boost-headers
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 0ab78633e3d2afc5acad8b2361753906a790dd74d35100032ece149e01d3d7d2
+Description: Boost throw_exception module
+Status: install ok installed
+
+Package: boost-static-assert
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-headers
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 880609bf8b6287e423ac27bb434f66ca284f35d2729588713d9cfe86261268c1
+Description: Boost static_assert module
+Status: install ok installed
+
+Package: boost-type-traits
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-headers, boost-static-assert
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 07679168bc51d63e76a744edd340fcf8ef2fabfb820099e7652c72d75a6b278c
+Description: Boost type_traits module
+Status: install ok installed
+
+Package: boost-preprocessor
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-headers
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 121f03baee3a4369bc598b7a28cfcc8a1289307794ec9ff53183e9e47c8eebd8
+Description: Boost preprocessor module
+Status: install ok installed
+
+Package: boost-io
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-headers
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: ab1db019b4972ac93d6c1a2320c391860cd66bafd7e1154b3051dcb2512f9841
+Description: Boost io module
+Status: install ok installed
+
+Package: boost-core
+Version: 1.86.0
+Depends: boost-assert, boost-cmake, boost-config, boost-headers, boost-static-assert, boost-throw-exception
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 02f783c4c025a292a3689abbc52a63bd6f0a6cfea6ed890dc53ac174a7d3be99
+Description: Boost core module
+Status: install ok installed
+
+Package: boost-utility
+Version: 1.86.0
+Depends: boost-assert, boost-cmake, boost-config, boost-core, boost-headers, boost-io, boost-preprocessor, boost-throw-exception, boost-type-traits
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 035c37e9cb32704884f94eae8c4a09b4ee4c0e8adcc5083cd6821f44d0e6fc48
+Description: Boost utility module
+Status: install ok installed
+
+Package: boost-predef
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-headers
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 6ae3f0819a827fd402b817dd97397667249d2d7b01033633b354799ac99e5642
+Description: Boost predef module
+Status: install ok installed
+
+Package: boost-winapi
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-headers, boost-predef
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 52b258885bd91a612348e3b2f13fc36cee9d52817827c328802ded8b8d2d84e1
+Description: Boost winapi module
+Status: install ok installed
+
+Package: boost-mp11
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-headers
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 107c5ba0267843728b382b17547b6145b8fa288be42b8d7a77719fdd283d4db5
+Description: Boost mp11 module
+Status: install ok installed
+
+Package: boost-variant2
+Version: 1.86.0
+Depends: boost-assert, boost-cmake, boost-config, boost-headers, boost-mp11
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 0d43381e091b3e345edc87680a47da6a116c80120c02ac0887279021b015acd6
+Description: Boost variant2 module
+Status: install ok installed
+
+Package: boost-system
+Version: 1.86.0
+Depends: boost-assert, boost-cmake, boost-config, boost-headers, boost-throw-exception, boost-variant2, boost-winapi
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: e46432aac66e42ea6f4163b492b6bcc85da96d48447efb016ce1c71d8e643904
+Description: Boost system module
+Status: install ok installed
+
+Package: boost-tuple
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-core, boost-headers, boost-static-assert, boost-type-traits
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: cd1619a1971553f0fb4ce17cc4d90c833ba9eedd05b991a2cd8f1425b824d702
+Description: Boost tuple module
+Status: install ok installed
+
+Package: boost-move
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-headers
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: fa9c64b22d32ded7072dc7cd90b90996c0792212c710a0ef18a5052cea4967f6
+Description: Boost move module
+Status: install ok installed
+
+Package: boost-smart-ptr
+Version: 1.86.0
+Depends: boost-assert, boost-cmake, boost-config, boost-core, boost-headers, boost-move, boost-static-assert, boost-throw-exception, boost-type-traits
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 7c6846cfe73271e82cde6981da7f7860d53ad7edc86136c5dfbe4c391a0bf212
+Description: Boost smart_ptr module
+Status: install ok installed
+
+Package: boost-mpl
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-core, boost-headers, boost-predef, boost-preprocessor, boost-static-assert, boost-type-traits, boost-utility
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: c4cef83209080495c068a232ed642370284f19a6ea6558d45cb36f756795953b
+Description: Boost mpl module
+Status: install ok installed
+
+Package: boost-integer
+Version: 1.86.0
+Depends: boost-assert, boost-cmake, boost-config, boost-core, boost-headers, boost-static-assert, boost-throw-exception, boost-type-traits
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 516876d379aa4355d7100a13c5b7d343011305302c2aa01c3662dfd256b38877
+Description: Boost integer module
+Status: install ok installed
+
+Package: boost-describe
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-headers, boost-mp11
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 6c76f28545c35124aa1aa2034739323695a0eb33f84570dba3b4d52f493590b8
+Description: Boost describe module
+Status: install ok installed
+
+Package: boost-container-hash
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-describe, boost-headers, boost-mp11
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: d1154271d52390c73070def6fcb62e20fdceef9a96ce2c980e5ac8858f3a2c03
+Description: Boost container_hash module
+Status: install ok installed
+
+Package: boost-concept-check
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-headers, boost-preprocessor, boost-static-assert, boost-type-traits
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 18742ed7577d383211661fa263caa8b36213c5c2da0c177a644147f625c04edc
+Description: Boost concept_check module
+Status: install ok installed
+
+Package: boost-regex
+Version: 1.86.0
+Depends: boost-assert, boost-cmake, boost-concept-check, boost-config, boost-container-hash, boost-core, boost-headers, boost-integer, boost-mpl, boost-predef, boost-smart-ptr, boost-static-assert, boost-throw-exception, boost-type-traits
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: a0c676f2f0085c4965e4ba9c49c1057760496e46df64be68aa3657b92e49b1f3
+Description: Boost regex module
+Status: install ok installed
+
+Package: boost-detail
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-core, boost-headers, boost-preprocessor, boost-static-assert, boost-type-traits
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 09ce3f391fb79135eb7e339ab55d5a12c68d35ad15652638fa11abc176ddc76e
+Description: Boost detail module
+Status: install ok installed
+
+Package: boost-optional
+Version: 1.86.0
+Depends: boost-assert, boost-cmake, boost-config, boost-core, boost-detail, boost-headers, boost-move, boost-predef, boost-static-assert, boost-throw-exception, boost-type-traits, boost-utility
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: a479bcf34a7c113caf609703f9664534f12548f54db116c6ed33e0938135c0dc
+Description: Boost optional module
+Status: install ok installed
+
+Package: boost-typeof
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-headers
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: b741b10db08f0882b4f7d0be75f1884dac8205452f979c0dc1749fad338135ad
+Description: Boost typeof module
+Status: install ok installed
+
+Package: boost-function-types
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-core, boost-detail, boost-headers, boost-mpl, boost-preprocessor, boost-type-traits
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 1cfd3ac6dea270197790f446757c1416fcdcc903c5d463cd8b5f734c4b266e03
+Description: Boost function_types module
+Status: install ok installed
+
+Package: boost-bind
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-core, boost-headers
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: fb31e71e03a75c9ee8232e9c6c8e70e360f2a579765dedbc2297be236c891d9a
+Description: Boost bind module
+Status: install ok installed
+
+Package: boost-function
+Version: 1.86.0
+Depends: boost-assert, boost-bind, boost-cmake, boost-config, boost-core, boost-headers, boost-throw-exception
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: ddb5712f34f29e1fa262d54326154d27d33ddd8a2162bd12eb3af4906f6b79a5
+Description: Boost function module
+Status: install ok installed
+
+Package: boost-functional
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-core, boost-function, boost-function-types, boost-headers, boost-mpl, boost-preprocessor, boost-type-traits, boost-typeof, boost-utility
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: a540b196e294b94e1e9061eeb562ef1982a545e32720fda25f0efec66bd9beaf
+Description: Boost functional module
+Status: install ok installed
+
+Package: boost-fusion
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-container-hash, boost-core, boost-function-types, boost-functional, boost-headers, boost-mpl, boost-preprocessor, boost-static-assert, boost-tuple, boost-type-traits, boost-typeof, boost-utility
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 78826c2589d1531280b30602ec54d6d72fe9e2862c628a89b78e0572f0a0fe1d
+Description: Boost fusion module
+Status: install ok installed
+
+Package: boost-iterator
+Version: 1.86.0
+Depends: boost-assert, boost-cmake, boost-concept-check, boost-config, boost-core, boost-detail, boost-function-types, boost-fusion, boost-headers, boost-mpl, boost-optional, boost-smart-ptr, boost-static-assert, boost-type-traits, boost-utility
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 307afa76173e85f3a0a46cc0fb2d3c19247d3ed4571a6813ed3a307842751326
+Description: Boost iterator module
+Status: install ok installed
+
+Package: boost-conversion
+Version: 1.86.0
+Depends: boost-assert, boost-cmake, boost-config, boost-headers, boost-smart-ptr, boost-throw-exception
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: d30f4dfe0c12bf585bfc50cc2819f17af76c8d097985b285a66409fd264528b4
+Description: Boost conversion module
+Status: install ok installed
+
+Package: boost-array
+Version: 1.86.0
+Depends: boost-assert, boost-cmake, boost-config, boost-core, boost-headers, boost-static-assert, boost-throw-exception
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 24ed4ea087ff1fe94fa88b54ac63bb3dd14d3207b9d643c20d3555434d8b9153
+Description: Boost array module
+Status: install ok installed
+
+Package: boost-range
+Version: 1.86.0
+Depends: boost-array, boost-assert, boost-cmake, boost-concept-check, boost-config, boost-container-hash, boost-conversion, boost-core, boost-detail, boost-headers, boost-iterator, boost-mpl, boost-optional, boost-preprocessor, boost-regex, boost-static-assert, boost-tuple, boost-type-traits, boost-utility
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 8a1f1f9d555b4b320181b4d7599b40a89670f403b8946a09413d680b9a5333d0
+Description: Boost range module
+Status: install ok installed
+
+Package: boost-dynamic-bitset
+Version: 1.86.0
+Depends: boost-assert, boost-cmake, boost-config, boost-container-hash, boost-core, boost-headers, boost-integer, boost-move, boost-static-assert, boost-throw-exception
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: b66a5c8b32e9fbae08dcef4177d5e422c0acf00d2cbbb3b32eb4f16f3a9a7148
+Description: Boost dynamic_bitset module
+Status: install ok installed
+
+Package: boost-random
+Version: 1.86.0
+Depends: boost-array, boost-assert, boost-cmake, boost-config, boost-core, boost-dynamic-bitset, boost-headers, boost-integer, boost-io, boost-range, boost-static-assert, boost-system, boost-throw-exception, boost-type-traits, boost-utility
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: c5fd02f22df8b025911d3f2e84c9bbd117870d15908f88f7dc7a98c4f858070d
+Description: Boost random module
+Status: install ok installed
+
+Package: boost-intrusive
+Version: 1.86.0
+Depends: boost-assert, boost-cmake, boost-config, boost-headers, boost-move
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 2bdc7df0e1dc0b770ae5afbc48618bf1ea0369f22cb250b09e0d4594aa9fc2ea
+Description: Boost intrusive module
+Status: install ok installed
+
+Package: boost-container
+Version: 1.86.0
+Depends: boost-assert, boost-cmake, boost-config, boost-headers, boost-intrusive, boost-move
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 0adcbe82225857f954d9c03b861dcc2ebcf01f6ff3d9ba313a218c256b985507
+Description: Boost container module
+Status: install ok installed
+
+Package: boost-lexical-cast
+Version: 1.86.0
+Depends: boost-cmake, boost-config, boost-container, boost-core, boost-headers, boost-integer, boost-throw-exception, boost-type-traits
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: ec6f257cac3fc2facc8bbb913a5d5072a3001faec8d358f3cf9fba9c1e3203cb
+Description: Boost lexical_cast module
+Status: install ok installed
+
+Package: boost-math
+Version: 1.86.0
+Depends: boost-assert, boost-cmake, boost-concept-check, boost-config, boost-core, boost-headers, boost-integer, boost-lexical-cast, boost-predef, boost-random, boost-static-assert, boost-throw-exception
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 7af7a4779cdef1e15e787e6e03c8a08321e1befeccc9495d829e95f99f42896e
+Description: Boost math module
+Status: install ok installed
+
+Package: boost-multiprecision
+Version: 1.86.0
+Depends: boost-assert, boost-cmake, boost-config, boost-core, boost-headers, boost-integer, boost-lexical-cast, boost-math, boost-predef, boost-random, boost-throw-exception
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: d28a9729520185609e49b802bd3517963b7cc0220b36fab8714e8adc73c6b753
+Description: Boost multiprecision module
+Status: install ok installed
+
+Package: cli11
+Version: 2.4.2
+Port-Version: 1
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 8f24030a678ad14f7939a19ae813c1da617f5c4b524f7da418d8ad59a4844613
+Description: CLI11 is a command line parser for C++11 and beyond that provides a rich feature set with a simple and intuitive interface.
+Status: install ok installed
+
+Package: zlib
+Version: 1.3.1
+Depends: vcpkg-cmake
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: ef300598acbd33c863502fd74b2e53b5cfdc7fdb4571f43c3593fce2e810259a
+Description: A compression library
+Status: install ok installed
+
+Package: vcpkg-cmake-get-vars
+Version: 2024-09-22
+Depends: vcpkg-cmake
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: b1f55fd29a6807149cab654c744d40dc1a89b38f6d94469acf3e2f49e6305b1d
+Status: install ok installed
+
+Package: openssl
+Version: 3.4.0
+Depends: vcpkg-cmake, vcpkg-cmake-config, vcpkg-cmake-get-vars
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: a1d2d78ccf7fda4cde8ea42d35485ebd641358f9fa22c884459ed10e2f8efaa2
+Description: OpenSSL is an open source project that provides a robust, commercial-grade, and full-featured toolkit for the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols. It is also a general-purpose cryptography library.
+Status: install ok installed
+
+Package: lz4
+Version: 1.10.0
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: 592f3d7e192054f8370c45053667b81ab211215b87c07f5d50ab011f9a4970d8
+Description: Lossless compression algorithm, providing compression speed at 400 MB/s per core.
+Status: install ok installed
+
+Package: libpq
+Version: 16.4
+Depends: vcpkg-cmake-get-vars
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: e75b2a5bd2aa355fdcec801c2110ca618e0c6f13fdf1ed341a9a2b73e22865f8
+Description: The official database access API of postgresql
+Default-Features: lz4, openssl, zlib
+Status: install ok installed
+
+Package: libpq
+Feature: bonjour
+Architecture: arm64-osx
+Multi-Arch: same
+Description: Build with Bonjour support
+Status: install ok installed
+
+Package: libpq
+Feature: lz4
+Depends: lz4
+Architecture: arm64-osx
+Multi-Arch: same
+Description: Use lz4
+Status: install ok installed
+
+Package: libpq
+Feature: openssl
+Depends: openssl
+Architecture: arm64-osx
+Multi-Arch: same
+Description: support for encrypted client connections and random number generation on platforms that do not have "/dev/urandom" (except windows)
+Status: install ok installed
+
+Package: libpq
+Feature: zlib
+Depends: zlib
+Architecture: arm64-osx
+Multi-Arch: same
+Description: Use zlib
+Status: install ok installed
+

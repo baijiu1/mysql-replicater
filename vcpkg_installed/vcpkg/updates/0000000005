@@ -1,0 +1,7 @@
+Package: vcpkg-cmake-get-vars
+Version: 2024-09-22
+Depends: vcpkg-cmake
+Architecture: arm64-osx
+Multi-Arch: same
+Abi: b1f55fd29a6807149cab654c744d40dc1a89b38f6d94469acf3e2f49e6305b1d
+Status: install ok installed

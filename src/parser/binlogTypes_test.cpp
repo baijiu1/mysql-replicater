@@ -77,11 +77,9 @@ int InitMySQLTypeFuncMaps() {
 // 函数：将二进制字符串转换为十进制整数
 int binaryStringToDecimal(const std::string& binaryString) {
     int decimalValue = 0;
-
     for (char bit : binaryString) {
         decimalValue = decimalValue * 2 + (bit - '0');
     }
-
     return decimalValue;
 }
 

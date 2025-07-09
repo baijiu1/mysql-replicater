@@ -1,21 +1,27 @@
 {
   "name" : "mysql-replicater",
   "version-string" : "1.0.0",
-  "builtin-baseline" : "943c5ef1c8f6b5e6ced092b242c8299caae2ff01",
+  "builtin-baseline" : "b7601ed37e1e1ce11a4f61b4b94a23e39d465f1d",
   "dependencies" : [ {
-    "name" : "vcpkg-cmake",
-    "version>=" : "2023-05-04"
-  }, {
-    "name" : "vcpkg-cmake-config",
-    "version>=" : "2022-02-06#1"
-  }, {
-    "name" : "vcpkg-cmake-get-vars",
-    "version>=" : "2023-12-31"
+    "name" : "libpq",
+    "version>=" : "16.4"
   }, {
     "name" : "openssl",
-    "version>=" : "3.3.0"
+    "version>=" : "3.4.0"
   }, {
-    "name" : "libpq",
-    "version>=" : "16.2#1"
+    "name" : "vcpkg-cmake-config",
+    "version>=" : "2024-05-23"
+  }, {
+    "name" : "vcpkg-cmake-get-vars",
+    "version>=" : "2024-09-22"
+  }, {
+    "name" : "vcpkg-cmake",
+    "version>=" : "2024-04-23"
+  }, {
+    "name" : "cli11",
+    "version>=" : "2.4.2#1"
+  }, {
+    "name" : "boost-multiprecision",
+    "version>=" : "1.86.0"
   } ]
 }

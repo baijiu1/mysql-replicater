@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc /Users/haruhi/ClionProjects/mysql-replicater/src/access/common/libacesscomm.a CMakeFiles/acesscomm.dir/system.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib /Users/haruhi/ClionProjects/mysql-replicater/src/access/common/libacesscomm.a

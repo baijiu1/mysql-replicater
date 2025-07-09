@@ -1,0 +1,2 @@
+/usr/bin/ar qc libProcess.a CMakeFiles/Process.dir/cache.cpp.o CMakeFiles/Process.dir/mySignal.cpp.o CMakeFiles/Process.dir/process.cpp.o CMakeFiles/Process.dir/walProcess.cpp.o
+/usr/bin/ranlib libProcess.a

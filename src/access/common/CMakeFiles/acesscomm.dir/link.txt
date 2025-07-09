@@ -1,0 +1,2 @@
+/usr/bin/ar qc libacesscomm.a CMakeFiles/acesscomm.dir/system.cpp.o
+/usr/bin/ranlib libacesscomm.a

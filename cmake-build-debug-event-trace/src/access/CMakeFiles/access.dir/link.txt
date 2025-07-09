@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc /Users/haruhi/ClionProjects/mysql-replicater/src/access/libaccess.a CMakeFiles/access.dir/access.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib /Users/haruhi/ClionProjects/mysql-replicater/src/access/libaccess.a

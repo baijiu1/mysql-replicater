@@ -1,0 +1,33 @@
+waiting to take filesystem lock on /Users/haruhi/.vcpkg-clion/vcpkg/.vcpkg-root...
+Detecting compiler hash for triplet arm64-osx...
+Compiler found: /Library/Developer/CommandLineTools/usr/bin/c++
+All requested packages are currently installed.
+Total install time: 167 ns
+boost-multiprecision provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(boost_multiprecision CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Boost::multiprecision)
+
+cli11 provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(CLI11 CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE CLI11::CLI11)
+
+cli11 provides pkg-config modules:
+
+  # C++ command line parser
+  CLI11
+
+openssl is compatible with built-in CMake targets:
+
+  find_package(OpenSSL REQUIRED)
+  target_link_libraries(main PRIVATE OpenSSL::SSL)
+  target_link_libraries(main PRIVATE OpenSSL::Crypto)
+
+The package libpq provides CMake integration:
+
+    find_package(PostgreSQL REQUIRED)
+    target_link_libraries(main PRIVATE PostgreSQL::PostgreSQL)
+

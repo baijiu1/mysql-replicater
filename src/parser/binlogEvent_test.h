@@ -7,6 +7,7 @@
 
 #include <cstdio>
 #include <string>
+#include <vector>
 
 using namespace std;
 #define  MYSQL_TYPE_DECIMAL   0

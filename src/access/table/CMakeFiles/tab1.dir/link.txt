@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtab1.a CMakeFiles/tab1.dir/page.cpp.o CMakeFiles/tab1.dir/table.cpp.o
+/usr/bin/ranlib libtab1.a

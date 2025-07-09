@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc /Users/haruhi/ClionProjects/mysql-replicater/src/parser/libParser.a CMakeFiles/Parser.dir/binlogEvent_test.cpp.o CMakeFiles/Parser.dir/binlogRows.cpp.o CMakeFiles/Parser.dir/binlogServer.cpp.o CMakeFiles/Parser.dir/binlogTypes_test.cpp.o CMakeFiles/Parser.dir/parser.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib /Users/haruhi/ClionProjects/mysql-replicater/src/parser/libParser.a
