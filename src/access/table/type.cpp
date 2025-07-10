@@ -30,7 +30,7 @@ uint32_t getTypeStoreByteCount1(vector<tableConstructData>& tableStructVec, int 
             nextColumnAttalign = "8";
         }
     }
-
+    printf("nextColumnAttalign: %s ", nextColumnAttalign.c_str());
     switch (stoi(tableStructVec[i].columnTypeId)) {
         case 19:
             // name
@@ -110,8 +110,9 @@ uint32_t getTypeStoreByteCount1(vector<tableConstructData>& tableStructVec, int 
             // 如果是4B，那么要取剩余的三个字节，再加上第一个字节，共4字节，包含了1位的标志位，1位标识是否压缩存储，剩余位为长度
 //            return VARATT_IS_1B();
             // (length & (align - 1)) == 0 检查是否对齐
-            printf("\n __bpchar__ \n");
+            printf("\n __bpchar__begin \n");
             typeEventFuncMap["bpchar"](fieldData, group, lpOff, nextColumnAttalign);
+            printf("\n __bpchar__end \n");
             break;
         case 1184:
             // timestamp with time zone

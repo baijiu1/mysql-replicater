@@ -20,6 +20,7 @@ int varlenaExtractNumeric(vector<uint8_t>& fieldData, vector<uint8_t >& group, u
     uint32_t firstByte = group[0];
     int			padding = 0;
     int			result	= 0;
+    printf("firstByte: %x group[1]: %x group[2]: %x ", firstByte, group[1], group[2]);
 
 
     if (VARATT_IS_1B(firstByte)) {
@@ -32,13 +33,23 @@ int varlenaExtractNumeric(vector<uint8_t>& fieldData, vector<uint8_t >& group, u
             throw std::out_of_range("varSize exceeds group size");
         }
         fieldData.assign(group.begin(), group.begin() + varSize);
-        uint32_t dataLen = TYPEALIGN(stoi(nextColumnAttalign), *lpOff + varSize) - *lpOff;
-        group.erase(group.begin(), group.begin() + dataLen); // 移除已取出的字节
-        *lpOff += dataLen;
-        printf("\n dataLen： %u firstByte: %u \n", dataLen, firstByte);
+//        for (int i = 0; i < fieldData.size(); ++i) {
+//            printf(" %x ", fieldData[i]);
+//        }
+        // 如果下一个不是short varlena类型，那么就要对齐
+        if (nextColumnAttalign == "4" && VARATT_IS_1B(group[varSize])) {
+            uint32_t dataLen = TYPEALIGN(1, *lpOff + varSize) - *lpOff;
+            group.erase(group.begin(), group.begin() + dataLen); // 移除已取出的字节
+            *lpOff += dataLen;
+        } else {
+            uint32_t dataLen = TYPEALIGN(stoi(nextColumnAttalign), *lpOff + varSize) - *lpOff;
+            group.erase(group.begin(), group.begin() + dataLen); // 移除已取出的字节
+            *lpOff += dataLen;
+        }
         // 这里需要转为Char*类型
         const unsigned char* buffer = reinterpret_cast<const unsigned char*>(fieldData.data());
         CopyAppendNumericValue(buffer + 1, varSize - 1);
+        return 0;
     } else if (VARATT_IS_4B(firstByte)) {
         if (VARATT_IS_4B_U(firstByte)) {
             // 未压缩数据varattrib_4b，最大1G，4个字节长度

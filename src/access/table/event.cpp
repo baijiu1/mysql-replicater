@@ -83,6 +83,7 @@ int parserTypeForBigint(vector<uint8_t>& fieldData, vector<uint8_t >& group, uin
     fieldData.assign(group.begin(), group.begin() + dataLen);
     group.erase(group.begin(), group.begin() + dataLen); // 移除已取出的字节
     uint64_t values = convertBigToLittleEndian64(fieldData, 0);
+    printf("\nBigINT: %llu \n", values);
     *lpOff += dataLen;
 };
 
@@ -112,11 +113,20 @@ int parserTypeForFloat(vector<uint8_t>& fieldData, vector<uint8_t >& group, uint
 };
 
 int parserTypeForDouble(vector<uint8_t>& fieldData, vector<uint8_t >& group, uint32_t *lpOff, string nextColumnAttalign) {
+    printf("\ndouble__begin");
     uint32_t dataLen = TYPEALIGN(stoi(nextColumnAttalign), *lpOff + 8) - *lpOff;
     fieldData.assign(group.begin(), group.begin() + dataLen);
     group.erase(group.begin(), group.begin() + dataLen); // 移除已取出的字节
+//    for (int i = 0; i < fieldData.size(); ++i) {
+//        printf(" %x ", fieldData[i]);
+//    }
+    uint64_t values = convertBigToLittleEndian64(fieldData, 0);
 
+    double value;
+    std::memcpy(&value, &values, sizeof(double));
+    printf("\nDouble: %f \n", value);
     *lpOff += dataLen;
+    printf("double__end\n");
 };
 
 
@@ -147,6 +157,9 @@ int parserTypeForDate(vector<uint8_t>& fieldData, vector<uint8_t >& group, uint3
     uint32_t dataLen = TYPEALIGN(stoi(nextColumnAttalign), *lpOff + 4) - *lpOff;
     fieldData.assign(group.begin(), group.begin() + dataLen);
     group.erase(group.begin(), group.begin() + dataLen); // 移除已取出的字节
+//    for (int i = 0; i < fieldData.size(); ++i) {
+//        printf(" %x ", fieldData[i]);
+//    }
     decode_date(reinterpret_cast<char *>(fieldData.data()), fieldData.size());
     *lpOff += dataLen;
 };
@@ -168,7 +181,7 @@ int parserTypeForTimestamp(vector<uint8_t>& fieldData, vector<uint8_t >& group, 
 };
 
 int parserTypeForTimestampWithTimeZone(vector<uint8_t>& fieldData, vector<uint8_t >& group, uint32_t *lpOff, string nextColumnAttalign) {
-    // 待验证
+    // 没有拿到时区信息
     uint32_t dataLen = TYPEALIGN(stoi(nextColumnAttalign), *lpOff + 8) - *lpOff;
     fieldData.assign(group.begin(), group.begin() + dataLen);
     group.erase(group.begin(), group.begin() + dataLen); // 移除已取出的字节

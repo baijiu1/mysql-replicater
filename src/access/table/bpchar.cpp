@@ -17,19 +17,31 @@ int varlenaExtractBpchar(vector<uint8_t>& fieldData, vector<uint8_t >& group, ui
         // 下面拿长度是没问题的
         int varSize = VARSIZE_1B(firstByte);
         printf(" \n varSize: %u \n", varSize);
+        printf(" \n VARSIZE_1B \n");
         if (varSize > group.size()) {
             throw std::out_of_range("varSize exceeds group size");
         }
         fieldData.assign(group.begin(), group.begin() + varSize);
-        uint32_t dataLen = TYPEALIGN(stoi(nextColumnAttalign), *lpOff + varSize) - *lpOff;
-        group.erase(group.begin(), group.begin() + dataLen); // 移除已取出的字节
-        *lpOff += dataLen;
-
+//        for (int i = 0; i < fieldData.size(); ++i) {
+//            printf(" %x ", fieldData[i]);
+//        }
+        if (nextColumnAttalign == "4" && VARATT_IS_1B(group[varSize])) {
+            uint32_t dataLen = TYPEALIGN(1, *lpOff + varSize) - *lpOff;
+            group.erase(group.begin(), group.begin() + dataLen); // 移除已取出的字节
+            *lpOff += dataLen;
+        } else {
+            uint32_t dataLen = TYPEALIGN(stoi(nextColumnAttalign), *lpOff + varSize) - *lpOff;
+            group.erase(group.begin(), group.begin() + dataLen); // 移除已取出的字节
+            *lpOff += dataLen;
+        }
         // 这里需要转为Char*类型
         const unsigned char* buffer = reinterpret_cast<const unsigned char*>(fieldData.data());
         CopyAppendEncode(buffer + 1, varSize - 1);
+        return 0;
     } else if (VARATT_IS_4B(firstByte)) {
+        printf("\nVARATT_IS_4B\n");
         if (VARATT_IS_4B_U(firstByte)) {
+            printf("\nVARATT_IS_4B_U");
             // 未压缩数据varattrib_4b，最大1G，4个字节长度
             fieldData.assign(group.begin(), group.begin() + 4);
             uint32_t vaHeader = convertBigToLittleEndian32(fieldData, 0);

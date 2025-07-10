@@ -619,7 +619,7 @@ int generateFinalData(vector<uint8_t >& group, finalTableData* tableNode, ItemId
     *lpOff = pdLinp.lp_off + 24;
     for (int i = 0; i < tableStructMap[tableRelName].size(); ++i) {
         tableNode->t_data.push_back(to_string(i));
-        printf("\n I: %u , groupSize: %zu \n", i, group.size());
+//        printf("\n I: %u , groupSize: %zu \n", i, group.size());
         getTypeStoreByteCount1(tableStructMap[tableRelName], i, group, lpOff);
     }
     delete lpOff;
@@ -670,6 +670,9 @@ int resolveTupleData(vector<vector<uint8_t> >& tuple, HeapPageHeader HeapHeader)
             generateGroup(group, 8, 12, tuple[i]);
             uint32_t tCID = convertBigToLittleEndian32(group, 0);
             group.resize(0);
+            // （页号，偏移量） 以下条件可以认为是该字段没有更改过，可以直接显示
+            // ctid 的 block ID == 当前页号
+            // ctid 的 offset ID == 当前元组在页中的 offset
             // ctid -> blockID
             generateGroup(group, 12, 16, tuple[i]);
             uint32_t tCTID_blockID = convertBigToLittleEndian32(group, 0);
