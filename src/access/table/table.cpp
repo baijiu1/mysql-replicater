@@ -676,10 +676,12 @@ int resolveTupleData(vector<vector<uint8_t> >& tuple, HeapPageHeader HeapHeader)
             // ctid -> blockID
             generateGroup(group, 12, 16, tuple[i]);
             uint32_t tCTID_blockID = convertBigToLittleEndian32(group, 0);
+            printf("\ntCTID_blockID: %u\n", tCTID_blockID);
             group.resize(0);
             // ctid -> offsetNumber
             generateGroup(group, 16, 18, tuple[i]);
-            uint32_t tCTID_offsetNumer = convertBigToLittleEndian32(group, 0);
+            uint16_t tCTID_offsetNumer = convertBigToLittleEndian16(group, 0);
+            printf("\ntCTID_offsetNumer: %u\n", tCTID_offsetNumer);
             group.resize(0);
             // t_infomask2
             generateGroup(group, 18, 20, tuple[i]);
@@ -1063,7 +1065,7 @@ int parserHeapTupleData(HeapPageHeader HeapHeader, vector<uint8_t>& logical_page
 
 }
 
-uint16_t resolveHeaderStruct(vector<uint8_t>& logical_page, const string& mode, const string& tableMode) {
+uint16_t resolveHeaderStruct(vector<uint8_t>& logical_page, const string& mode, const string& tableMode, int pageNumber) {
     HeapPageHeader HeapHeader = new HeapPageHeaderData;
     // initialize pdlinp vector
 
@@ -1076,6 +1078,7 @@ uint16_t resolveHeaderStruct(vector<uint8_t>& logical_page, const string& mode, 
     HeapHeader->pd_special = convertBigToLittleEndian16(logical_page, 16);
     HeapHeader->pd_pagesize_version = convertBigToLittleEndian16(logical_page, 18);
     HeapHeader->pd_prune_xid = convertBigToLittleEndian32(logical_page, 20);
+    HeapHeader->page_number = pageNumber;
 
 #ifdef OPENGAUSS
     HeapHeader->pd_xid_base = convertBigToLittleEndian16(stoull(accumulate(pageHeader.begin() + 24, pageHeader.end() + 32, std::string()), nullptr, 16));
@@ -1166,9 +1169,9 @@ int findTableStruct(string& pgClassNodePath, const string& tableMode) {
         memcpy(logical_page2.data(), logical_page1.data() + 8192, 8192);
         logical_page1.resize(_PAGESIZE / 2);
         munmap(recoverPageHeap, _PAGESIZE);
-        resolveHeaderStruct(logical_page1, "parserTableConstruct", tableMode);
+        resolveHeaderStruct(logical_page1, "parserTableConstruct", tableMode, i);
         if (fileSize != 8192) {
-            resolveHeaderStruct(logical_page2, "parserTableConstruct", tableMode);
+            resolveHeaderStruct(logical_page2, "parserTableConstruct", tableMode, i);
         }
         logical_page1.clear();
         logical_page2.clear();
@@ -1304,9 +1307,9 @@ int handleHeapDataRecover(int fd, size_t addrIndex) {
         memcpy(logical_page2.data(), logical_page1.data() + 8192, 8192);
         logical_page1.resize(_PAGESIZE / 2);
         munmap(recoverPageHeap, _PAGESIZE);
-        resolveHeaderStruct(logical_page1, "parserDataRecover", "1");
+        resolveHeaderStruct(logical_page1, "parserDataRecover", "1", i);
         if (fileSize != 8192) {
-            resolveHeaderStruct(logical_page2, "parserDataRecover", "1");
+            resolveHeaderStruct(logical_page2, "parserDataRecover", "1", i);
         }
         logical_page1.clear();
         logical_page2.clear();

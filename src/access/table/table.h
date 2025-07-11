@@ -77,7 +77,7 @@ string vectorCharConvertToString(vector<char>, int, int);
 
 int processDataRecover(vector<string>&, map<string , vector<string> >&, vector<string >&);
 int handleHeapDataRecover(int, size_t);
-uint16_t resolveHeaderStruct(vector<uint8_t>&, const string&, const string&);
+uint16_t resolveHeaderStruct(vector<uint8_t>&, const string&, const string&, int);
 int parserHeapTupleData(HeapPageHeader, vector<uint8_t>&, const string&);
 int resolveTupleData(vector<vector<uint8_t> >&, HeapPageHeader);
 int resolvePgSysTableHeapData(vector<vector<uint8_t> >&, HeapPageHeader);

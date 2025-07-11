@@ -170,6 +170,7 @@ typedef struct {
 #endif
 //    ItemIdData pd_linp[FLEXIBLE_ARRAY_MEMBER]; /* beginning of line pointer array */
     vector<ItemIdData> pd_linp; /* beginning of line pointer array */
+    int page_number;
 
 } HeapPageHeaderData;
 

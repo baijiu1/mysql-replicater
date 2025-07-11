@@ -17,10 +17,10 @@ using namespace std;
 
 int varlenaExtractNumeric(vector<uint8_t>& fieldData, vector<uint8_t >& group, uint32_t *lpOff, string nextColumnAttalign) {
     // 这里可以优化，直接转换成char*类型，然后强制转换为varattrib_1b类型
-    uint32_t firstByte = group[0];
+    uint8_t firstByte = group[0];
     int			padding = 0;
     int			result	= 0;
-    printf("firstByte: %x group[1]: %x group[2]: %x ", firstByte, group[1], group[2]);
+    printf("firstByte: %x group[0]: %x  group[1]: %x group[2]: %x ", firstByte, group[0], group[1], group[2]);
 
 
     if (VARATT_IS_1B(firstByte)) {
@@ -28,7 +28,11 @@ int varlenaExtractNumeric(vector<uint8_t>& fieldData, vector<uint8_t >& group, u
         // 第一个字节自动就是*varattrib_1b->va_header，强制转换是按顺序填入到类型中，因为va_header定义为uint8_t，所以第一个字节就直接是va_header了
         // 下面拿长度是没问题的
         printf("\n VARATT_IS_1B \n");
+        printf("firstByte: %x group[0]: %x  group[1]: %x group[2]: %x ", firstByte, group[0], group[1], group[2]);
         int varSize = VARSIZE_1B(firstByte);
+//        int varSize1 = ((firstByte >> 1) & 0x7F);
+//        printf("varSize: %d\n", varSize);
+//        printf("varSize: %x", ((firstByte >> 1) & 0x7F));
         if (varSize > group.size()) {
             throw std::out_of_range("varSize exceeds group size");
         }
@@ -37,13 +41,19 @@ int varlenaExtractNumeric(vector<uint8_t>& fieldData, vector<uint8_t >& group, u
 //            printf(" %x ", fieldData[i]);
 //        }
         // 如果下一个不是short varlena类型，那么就要对齐
-        if (nextColumnAttalign == "4" && VARATT_IS_1B(group[varSize])) {
+        if (nextColumnAttalign == "4" && group.size() > varSize && group[varSize] != 0 && VARATT_IS_1B(group[varSize])) {
             uint32_t dataLen = TYPEALIGN(1, *lpOff + varSize) - *lpOff;
             group.erase(group.begin(), group.begin() + dataLen); // 移除已取出的字节
             *lpOff += dataLen;
         } else {
+//            printf("TYPEALIGN(stoi(nextColumnAttalign), *lpOff + varSize): %lu", TYPEALIGN(stoi(nextColumnAttalign), *lpOff + varSize));
             uint32_t dataLen = TYPEALIGN(stoi(nextColumnAttalign), *lpOff + varSize) - *lpOff;
-            group.erase(group.begin(), group.begin() + dataLen); // 移除已取出的字节
+            printf("dataLen: %u groupSize: %zu", dataLen, group.size());
+            if (dataLen > group.size()) {
+                group.erase(group.begin(), group.begin() + varSize); // 移除已取出的字节
+            } else {
+                group.erase(group.begin(), group.begin() + dataLen); // 移除已取出的字节
+            }
             *lpOff += dataLen;
         }
         // 这里需要转为Char*类型
