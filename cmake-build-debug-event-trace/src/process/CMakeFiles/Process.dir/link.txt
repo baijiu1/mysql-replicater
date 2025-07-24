@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc /Users/haruhi/ClionProjects/mysql-replicater/src/process/libProcess.a CMakeFiles/Process.dir/cache.cpp.o CMakeFiles/Process.dir/mySignal.cpp.o CMakeFiles/Process.dir/process.cpp.o CMakeFiles/Process.dir/walProcess.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib /Users/haruhi/ClionProjects/mysql-replicater/src/process/libProcess.a

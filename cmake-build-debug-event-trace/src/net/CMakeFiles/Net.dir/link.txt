@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc /Users/haruhi/ClionProjects/mysql-replicater/src/net/libNet.a CMakeFiles/Net.dir/auth.cpp.o CMakeFiles/Net.dir/packet.cpp.o CMakeFiles/Net.dir/read.cpp.o CMakeFiles/Net.dir/send.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib /Users/haruhi/ClionProjects/mysql-replicater/src/net/libNet.a

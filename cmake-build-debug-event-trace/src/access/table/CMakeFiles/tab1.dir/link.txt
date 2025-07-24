@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc /Users/haruhi/ClionProjects/mysql-replicater/src/access/table/libtab1.a CMakeFiles/tab1.dir/bpchar.cpp.o CMakeFiles/tab1.dir/date.cpp.o CMakeFiles/tab1.dir/event.cpp.o CMakeFiles/tab1.dir/numeric.cpp.o CMakeFiles/tab1.dir/page.cpp.o CMakeFiles/tab1.dir/table.cpp.o CMakeFiles/tab1.dir/type.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib /Users/haruhi/ClionProjects/mysql-replicater/src/access/table/libtab1.a

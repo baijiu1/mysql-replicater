@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libindex.a CMakeFiles/index.dir/ibtree.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libindex.a

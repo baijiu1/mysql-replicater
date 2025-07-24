@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc ../../../../out/libconfig++.a CMakeFiles/config++.dir/grammar.c.o CMakeFiles/config++.dir/libconfig.c.o CMakeFiles/config++.dir/scanctx.c.o CMakeFiles/config++.dir/scanner.c.o CMakeFiles/config++.dir/strbuf.c.o CMakeFiles/config++.dir/strvec.c.o CMakeFiles/config++.dir/util.c.o CMakeFiles/config++.dir/wincompat.c.o CMakeFiles/config++.dir/libconfigcpp.cc.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib ../../../../out/libconfig++.a

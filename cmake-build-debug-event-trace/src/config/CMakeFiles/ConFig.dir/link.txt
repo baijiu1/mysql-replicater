@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc /Users/haruhi/ClionProjects/mysql-replicater/src/config/libConFig.a CMakeFiles/ConFig.dir/config.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib /Users/haruhi/ClionProjects/mysql-replicater/src/config/libConFig.a
