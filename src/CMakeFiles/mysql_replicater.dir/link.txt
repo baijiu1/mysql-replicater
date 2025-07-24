@@ -1,1 +1,0 @@
-/usr/local/bin/c++ -O3 -DNDEBUG CMakeFiles/mysql_replicater.dir/main.cpp.o -o bin/mysql_replicater  access/libaccess.a access/table/libtab1.a access/common/libacesscomm.a /usr/lib/aarch64-linux-gnu/libpq.so /usr/lib/aarch64-linux-gnu/libpq.so 
