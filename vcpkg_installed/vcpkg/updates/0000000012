@@ -1,9 +1,0 @@
-Package: libpq
-Version: 16.4
-Depends: vcpkg-cmake-get-vars
-Architecture: arm64-osx
-Multi-Arch: same
-Abi: 95d566bee0d36829b6f8a2642146f99087d6f4c113aadf576db5d348f0cddd6e
-Description: The official database access API of postgresql
-Default-Features: lz4, openssl, zlib
-Status: install ok half-installed

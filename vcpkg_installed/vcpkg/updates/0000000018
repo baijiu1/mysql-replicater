@@ -1,6 +1,0 @@
-Package: libpq
-Feature: bonjour
-Architecture: arm64-osx
-Multi-Arch: same
-Description: Build with Bonjour support
-Status: install ok installed
