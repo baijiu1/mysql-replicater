@@ -1,2 +1,0 @@
-/usr/bin/ar qc libaccess.a CMakeFiles/access.dir/access.cpp.o
-/usr/bin/ranlib libaccess.a
